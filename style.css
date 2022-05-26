@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+#body{
+    background-image: url(images/loginbackground.jpg) ;
+background-repeat: no-repeat;
+background-size: cover;
+width: 100%;
+height: auto;
+font-family: 'Montserrat';
+}
+.login{
+    color: hsl(0, 0%, 100%);
+width: 30%;
+ position: absolute;
+ top: 50px;
+left: 33%;
+ border-radius: 20px;
+ height: 70%;
+ background-color: rgba(118, 118, 117, 0.603);
+ margin-left: 53px;
+ border-radius: 20px;
+}
+.login label{
+    font-size: 23px;
+    margin-left: 10px;
+}
+.login h1{
+
+color: hsl(0, 0%, 100%);
+width:60%;
+height: 58px;
+font-family: 'Montserrat';
+
+font-weight: 800;
+font-size: 48px;
+line-height: 58px;
+/* identical to box height */
+text-align: right;
+}
+.login input{
+color: hsl(0, 0%, 100%);
+margin-left: 50px;
+box-sizing: border-box;
+width: 318px;
+height: 50px;
+background: #FFFFFF;
+border: 1px solid #000000;
+border-radius: 10px;
+}
+.login button{
+   
+    /* margin-top: 20px; */
+    width: 100%;
+    background: linear-gradient(180deg, hsl(215deg 17% 55%) 0%, rgba(195, 222, 241, 0.44) 100%);
+    color: hsl(0, 0%, 100%);
+    padding: 14px 20px;
+    margin: 30px 0;
+    border: none;
+    cursor: pointer;
+}
+.login form{
+    margin-top: 80px;
+}
+.signup{
+    font-family: Arial, Sans-Serif;
+    font-size: 18px;
+    color: #adadad;
+    padding: 200px ;
+    outline:none;   
+    /* float:left; */
+    border: solid 1px #adadad;
+    /* width: 230px; */
+    transition: all 2s ease-in-out;
+    -webkit-transition: all 2s ease-in-out;
+    -moz-transition: all 2s ease-in-out;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+    -moz-box-shadow:inset 0 0 5px 5px #E6E6E6;
+    -webkit-box-shadow:inset 0 0 5px 5px #E6E6E6;
+    box-shadow:inset 0 0 5px 5px #E6E6E6;
+    clear: right;
+}
+.signup input{
+    color: hsl(0, 0%, 100%);
+    margin-left: 50px;
+    box-sizing: border-box;
+    width: 318px;
+    height: 50px;
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 10px; 
+}
