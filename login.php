@@ -1,5 +1,5 @@
 <?php include "connection.php"; 
-
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,22 +29,28 @@
   </div>
 </body>
 <?php
+
+  
 if (isset($_POST['submit'])){
   $email = $_POST['managerEmail'];
   $password =$_POST['managerPassword'];
-
-$sql ="SELECT * FROM `manager` WHERE email ='". $email."'AND  password ='".$password."'";
-$result =mysqli_query($conn ,$sql);
-if(mysqli_num_rows($result)==1){
-  echo " you have Successfuly logged in ";
   
-  exit();
+  $sql ="SELECT * FROM `manager` WHERE email ='". $email."' AND  password ='".$password."'";
+  $result =mysqli_query($conn ,$sql);
+  if(mysqli_num_rows($result)==1){
+    echo " you have Successfuly logged in ";
+    
+    exit();
+  }else{
+    echo " you have  false false false";
+    exit();
+  }
+  if(is_array($resul)){
+    $_SESSION['email'] = $result['managerEmail'];
+    $_SESSION['password'] = $result['managerPassword']; 
+    // echo $_SESSION['email'];
 }else{
-  echo " you have  false false false";
-  exit();
-}
-if(is_array($resul)){
-  
+  // echo $_SESSION['email'];
 }
 }
  ?>
