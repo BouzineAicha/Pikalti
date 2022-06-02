@@ -1,5 +1,31 @@
-<?php include "connection.php"; 
-session_start();
+<?php include "connection.php";
+
+?>
+<?php
+
+
+if (isset($_POST['submit'])) {
+  $email = $_POST['managerEmail'];
+  $password = $_POST['managerPassword'];
+
+  $sql = "SELECT * FROM `manager` WHERE `email` ='" . $email . "' AND  `password` ='" . $password . "'" ;
+ 
+  $result = mysqli_query($conn, $sql);
+  if (mysqli_num_rows($result) == 1) {
+    session_start();
+    
+    //  $_SESSION["fullName"]= $_POST['fullName'];
+ 
+    $_SESSION["email"] = $_POST['managerEmail'];
+    // $_SESSION['fullName'] = $firstname;
+
+    header("location:home.php");
+  } else {
+    echo "<p style ='color:red'> the password not correct </p>";
+  }
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,45 +39,24 @@ session_start();
   <title>login</title>
 </head>
 
-<body>
+<body style="background-image:url('images/loginbackground.jpg');background-repeat: no-repeat;
+background-size: cover;
+width: 100%;
+height: auto;">
+<!-- <img src="images/loginbackground.jpg> -->
   <div id="body">
     <div class="login">
       <h1>login</h1>
-      <form method="POST" action="#" >
+      <form method="POST" action="#">
         <h2>Email</h2>
-        <input type="email" class="input" name="managerEmail" style="color:#000000;">
+        <input type="text" value="" id="email" class="input" name="managerEmail" style="color:#000000;">
+        <h6 id=" errorEmail"></h6>
         <h2>password</h2>
-        <input type="password" class="input" name="managerPassword"style="color:#000000;">
-        <button name="submit">done</button>
-      </form>
+        <input type="password" class="input" name="managerPassword" style="color:#000000;">
+        <button type="submit" name="submit" onkeydown="validation()">done</button>
+ </form>
 
-    </div>
-  </div>
-</body>
-<?php
-
-  
-if (isset($_POST['submit'])){
-  $email = $_POST['managerEmail'];
-  $password =$_POST['managerPassword'];
-  
-  $sql ="SELECT * FROM `manager` WHERE email ='". $email."' AND  password ='".$password."'";
-  $result =mysqli_query($conn ,$sql);
-  if(mysqli_num_rows($result)==1){
-    echo " you have Successfuly logged in ";
-    
-    exit();
-  }else{
-    echo " you have  false false false";
-    exit();
-  }
-  if(is_array($resul)){
-    $_SESSION['email'] = $result['managerEmail'];
-    $_SESSION['password'] = $result['managerPassword']; 
-    // echo $_SESSION['email'];
-}else{
-  // echo $_SESSION['email'];
-}
-}
- ?>
+</div>
+</div>
+</body >
 </html>
