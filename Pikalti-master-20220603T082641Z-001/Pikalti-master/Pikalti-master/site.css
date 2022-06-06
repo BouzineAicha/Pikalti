@@ -1,9 +1,7 @@
 body{
+    background-color: blueviolet;
     width: 100%;
     height: auto;
-    padding: 0px;
-    margin: 0px;
-    background-color: brown;
 }
 nav ul li{
     list-style:none ;
