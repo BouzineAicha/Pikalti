@@ -5,23 +5,19 @@ session_start();
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
   <title>Document</title>
 </head>
-
+<?php include "nav.php"; ?>
 <body>
-  <nav>
-    <?php include "NAV.php"; ?>
-  </nav>
-  <div class="space">
-
+  <section>
+  <div class="container">
     <h1> welcome <?php echo $_SESSION['email'];?></h1>
-  
- 
   </div>
+  </section>
 </body>
 
 </html>

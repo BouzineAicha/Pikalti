@@ -9,9 +9,14 @@
     <title>add Client</title>
 </head>
 
-<body>
-    <form class="signup">
-        <div>
+<body style="background-color:red ;">
+    <section class="add-client">
+    <div>
+        <img src="images/velo-anytour-e2-lds-giant-2021.jpg">
+    </div>
+    <div style="background-color:white;" >
+    <form >
+        
         <lable>First Name</lable><br>
         <input type="text" class="input"><br>
         <lable>Last Name</lable><br>
@@ -20,16 +25,17 @@
         <input type="text" class="input"><br>
         <lable>Password</lable><br>
         <input type="text" class="input">
-    </div>
-    <div>
         <lable>Adress</lable><br>
         <input type="text" class="input"><br>
         <lable>Phone Number</lable><br>
         <input type="email" class="input"><br>
         <lable>Email</lable><br>
         <input type="password" class="input">
-        </div>
+        
     </form>
+    </div>
+   
+    </div>
 </body>
 
 </html>
