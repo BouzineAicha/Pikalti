@@ -1,95 +1,161 @@
+<?php 
+include "connection.php";
+session_start();
+if (isset($_POST["done"])) {
+  $fname = $_POST["fname"];
+  $lname = $_POST["lname"];
+  $phone = $_POST["phone"];
+  $adress = $_POST["Adress"];
+  $email = $_POST["Email"];
+  $cin = $_POST["cin"];
+  $sql ="INSERT INTO `client`(`Fname`, `Lname`, `Phone`, `Adresse`, `Email`, `CIN`) VALUES (' $fname','$lname','$phone','$adress','$email','$cin')";
+  $conn->query($sql);
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />    
-    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/8ad36ff707.js" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/84697556e3.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://kit.fontawesome.com/8ad36ff707.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/84697556e3.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css" />
   <title>Document</title>
 </head>
-<?php include'nav.php' ;?>
+<?php include 'nav.php'; ?>
+
 <body>
- <div class="container"> 
- <div >
-  <span class="nav-text" >
+  <div class="container">
+    
+      <!-- <span class="nav-text" >
   
   <a href="addClient.php" class="add"><i class="fa fa-user-plus fa-2x" style="width:0;height:0;"></i>Add New Client </a>
-                        </span>
-  </div>
-<table style="overflow-y:scroll" >
-  
-<thead >
-   
-    <tr>
-        <th >ID</th>
-        <th >First Name</th>
-        <th >Last Name</th>
-        <th >Phone number</th>
-        <th >adresse</th>
-        <th >password</th>
-        <th >email</th>
-        <th >cin</th>
-        <th >Delete</th>
-        <th > Edit </th>
-    </tr>
-</thead>
- 
-    
-      <tbody>
-          <tr>
-                <?php
-                include "connection.php";
-                $sql = "SELECT * FROM `client`";
-                $id = $_REQUEST["ID_Client"];
-                $result = $conn->query($sql);
-                $delete = "DELETE FROM `client` WHERE ID_Client  ='$id'";
-                $conn->query($delete);
+  </span> -->
+  <form action="client.php" method="post">
+      <div class="popup-container">
+        <label class="button" for="login-popup">ADD Client</label>
+        <input type="checkbox" id="login-popup">
+        
+        <div class="popup">
+          <label for="login-popup"></label>
+          <div class="inner">
+            <div class="title">
+              <h6>ADD Client</h6>
+              <label for="login-popup">
+                <i class="fa fa-times"></i>
+              </label>
+            </div>
+            <div class="content">
+              <ul>
+                <li>
+                  <input type="text" class="input" placeholder="First Name"name="fname">
 
+                </li>
+                <li>
+                  <input type="text" class="input" placeholder="Last Name"name="lname">
+
+                </li>
+                <li>
+                  <input type="text" class="input" placeholder="Phone Number" name="phone">
+
+                </li>
+                <li>
+                  <input type="text" class="input" placeholder="Adress" name="Adress">
+
+                </li>
+                <li>
+                  <input type="email" class="input" placeholder="Email" name="Email">
+
+                </li>
+                <li>
+                  <input type="text" class="input" placeholder="CIN" name="cin">
+
+                </li>
+               
+                
+              </ul>
+              <button type="submit"name="done">Submit</button>
+            </div>
+          </div>
+        </div>
+        </form>
+          <table style="overflow-y:scroll">
+
+            <thead>
+
+              <tr>
+                <th style="width: 80px;">ID</th>
+                <th style="width: 150px;">First Name</th>
+                <th style="width: 150px;">Last Name</th>
+                <th style="width: 150px;">Phone number</th>
+                <th style="width: 180px;">adresse</th>
+                <!-- <th>password</th> -->
+                <th style="width: 180px;">email</th>
+                <th style="width: 100px;">cin</th>
+                <th style="width: 140px;">Delete</th>
+                <th> Edit </th>
+              </tr>
+            </thead>
+
+
+            <tbody>
+              <tr>
+                <?php
+                  $sql = "SELECT * FROM `client`";           
+                    $id = $_REQUEST["ID_Client"];
+                      $result = $conn->query($sql);
+                      $delete = "DELETE FROM `client`WHERE `ID_Client`='$id'";                 
+                      $conn->query($delete);
+             $result = $conn->query($sql);
                 foreach ($result as $row) {
                 ?>
-                    <td> <i class='fa fa-user 2x btn'   style="font-size:20px ; color:#2f3449 ;" ></i>  <?php echo $row["ID_Client"] ?></td>
-                  
-                    <td><?php echo $row["Fname"] ?></td>
-                    <td><?php echo $row["Lname"] ?></td>
-                    <td><?php echo $row["Phone"] ?></td>
-                    <td><?php echo $row["Adresse"] ?></td>
-                    <td><?php echo $row["Password"] ?></td>
-                    <td><?php echo $row["Email"] ?></td>
-                    <td><?php echo $row["CIN"] ?></td>
-                    <td>
-                    <form action="select.php" method="post">
-                            <input type="hidden" name="name" value="">
-
-                            <a href="client.php?id=<?php echo $row["ID_Client"]; ?>" onClick="return confirm('Are you sure you want to delete?')"> <i class='bx bx-trash icon 2x btn' style="font-size:25px ; color:#2f3449; background-color: #E3E3E3 " ></i></a>
-                            <?php
-                            ?>
-                        </form>
-                    </td>
-                    <td>
-                        <a href="update.php? id=<?php echo $row["ID_Client"]; ?>"> <i class='fa fa-edit 2x btn' style="font-size:25px ; color:#2f3449;background-color: #E3E3E3;
+                  <td style="width: 80px;"> <i class='fa fa-user 2x btn' style="font-size:15px ; color:#2f3449 ;"><?php echo $row["ID_Client"] ?></i> </td>
+                  <td style="width: 150px;"><?php echo $row["Fname"] ?></td>
+                  <td style="width: 150px;"><?php echo $row["Lname"] ?></td>
+                  <td style="width: 150px;"><?php echo $row["Phone"] ?></td>
+                  <td style="width: 180px;"><?php echo $row["Adresse"] ?></td>
+                  <td style="width: 180px;"><?php echo $row["Email"] ?></td>
+                  <td style="width: 100px;"><?php echo $row["CIN"] ?></td>
+                  <td style="width: 140px;">
+                    <form action="client.php" method="post">
+                      <input type="hidden" name="name" value="">
+                      <a   href="client.php?ID_Client=<?php echo $row["ID_Client"]; ?>" onClick="return confirm('Are you sure you want to delete?')"> <i class='bx bx-trash icon 2x btn' style="font-size:25px ; color:#2f3449; background-color: #E3E3E3 "></i></a>
+                      <?php
+                      
+                 
+                         
+                      ?>
+                    </form>
+                  </td>
+                  <td style="width: 140px;">
+                    
+                    <a href="update.php? id=<?php echo $row["ID_Client"]; ?>"> <i class='fa fa-edit 2x btn' style="font-size:25px ; color:#2f3449;background-color: #E3E3E3;
             display: table;
             border-collapse: collapse;
             border-spacing: 0;
-            text-decoration: none;" ></i></a>
-                    </td>
-            </tr>
-        <?php
+            text-decoration: none;"></i></a>
+                  </td>
+              </tr>
+            <?php
                 }
                 $conn->close();
-                ?>
-               
-            </form>
-           
+            ?>
 
-   
-    </tbody>
-    </table>
- </div>
+            </form>
+
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
 </body>
+
 </html>
