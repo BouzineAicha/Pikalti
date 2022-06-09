@@ -91,15 +91,15 @@ if (isset($_POST["done"])) {
             <thead>
 
               <tr>
-                <th style="width: 80px;">ID</th>
-                <th style="width: 150px;">First Name</th>
-                <th style="width: 150px;">Last Name</th>
-                <th style="width: 150px;">Phone number</th>
-                <th style="width: 180px;">adresse</th>
+                <th style="width: 80px;text-align:center">ID</th>
+                <th style="width: 150px;text-align:center">First Name</th>
+                <th style="width: 150px;text-align:center">Last Name</th>
+                <th style="width: 150px;text-align:center">Phone number</th>
+                <th style="width: 180px;text-align:center">adresse</th>
                 <!-- <th>password</th> -->
-                <th style="width: 180px;">email</th>
-                <th style="width: 100px;">cin</th>
-                <th style="width: 140px;">Delete</th>
+                <th style="width: 180px;text-align:center">email</th>
+                <th style="width: 100px;text-align:center">cin</th>
+                <th style="width: 140px;text-align:center">Delete</th>
                 <th> Edit </th>
               </tr>
             </thead>
@@ -116,17 +116,17 @@ if (isset($_POST["done"])) {
              $result = $conn->query($sql);
                 foreach ($result as $row) {
                 ?>
-                  <td style="width: 80px;"> <i class='fa fa-user 2x btn' style="font-size:15px ; color:#2f3449 ;"><?php echo $row["ID_Client"] ?></i> </td>
-                  <td style="width: 150px;"><?php echo $row["Fname"] ?></td>
-                  <td style="width: 150px;"><?php echo $row["Lname"] ?></td>
-                  <td style="width: 150px;"><?php echo $row["Phone"] ?></td>
-                  <td style="width: 180px;"><?php echo $row["Adresse"] ?></td>
-                  <td style="width: 180px;"><?php echo $row["Email"] ?></td>
-                  <td style="width: 100px;"><?php echo $row["CIN"] ?></td>
-                  <td style="width: 140px;">
+                  <td style="width: 80px;text-align:center"> <i class='fa fa-user 2x btn' style="font-size:15px ; color:#2f3449 ;"><?php echo $row["ID_Client"] ?></i> </td>
+                  <td style="width: 150px;text-align:center"><?php echo $row["Fname"] ?></td>
+                  <td style="width: 150px;text-align:center"><?php echo $row["Lname"] ?></td>
+                  <td style="width: 150px;text-align:center"><?php echo $row["Phone"] ?></td>
+                  <td style="width: 180px;text-align:center"><?php echo $row["Adresse"] ?></td>
+                  <td style="width: 180px;text-align:center"><?php echo $row["Email"] ?></td>
+                  <td style="width: 100px;text-align:center"><?php echo $row["CIN"] ?></td>
+                  <td style="width: 140px;text-align:center">
                     <form action="client.php" method="post">
                       <input type="hidden" name="name" value="">
-                      <a   href="client.php?ID_Client=<?php echo $row["ID_Client"]; ?>" onClick="return confirm('Are you sure you want to delete?')"> <i class='bx bx-trash icon 2x btn' style="font-size:25px ; color:#2f3449; background-color: #E3E3E3 "></i></a>
+                      <a   href="client.php?ID_Client=<?php echo $row["ID_Client"]; ?>" onClick="return confirm('Are you sure you want to delete?')"> <i class='bx bx-trash icon 2x btn' style="font-size:25px ; color:#2f3449; "></i></a>
                       <?php
                       
                  
@@ -134,13 +134,13 @@ if (isset($_POST["done"])) {
                       ?>
                     </form>
                   </td>
-                  <td style="width: 140px;">
+                  <td style="width: 140px;text-align:center">
                     
-                    <a href="update.php? id=<?php echo $row["ID_Client"]; ?>"> <i class='fa fa-edit 2x btn' style="font-size:25px ; color:#2f3449;background-color: #E3E3E3;
+                    <a href="update.php? id=<?php echo $row["ID_Client"]; ?>"> <i class='fa fa-edit 2x btn' style="font-size:20px ; color:#2f3449;
             display: table;
             border-collapse: collapse;
             border-spacing: 0;
-            text-decoration: none;"></i></a>
+            text-decoration: none; "></i> </a>
                   </td>
               </tr>
             <?php

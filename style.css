@@ -334,6 +334,10 @@ nav.main-menu li.active > a,
   transform: translate(-50%, -50%);
 }
 table {
+  font-family: "Montserrat";
+  font-style: normal;
+  color: #000000;
+  font-weight: 700;
   background-color: #b7bdcc;
   width: 1280px;
   border-collapse: collapse;
@@ -341,12 +345,16 @@ table {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 tr {
+  height: 55px;
   display: table;
   width: 100%;
   box-sizing: border-box;
 }
 
 th td {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 800;
   text-align: center;
   border-bottom: none;
   border-left: none;
@@ -363,13 +371,20 @@ thead {
   z-index: 2;
 }
 thead th {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 44px;
+  font-family: "Montserrat";
+  font-style: normal;
   background-color: #2f3449;
   color: #999999;
 }
+
 tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(138, 138, 150, 0.3);
 }
 tbody {
+  background-color: white;
   display: block;
   max-height: 598px;
   overflow-y: scroll;
@@ -377,6 +392,7 @@ tbody {
 tbody td {
   position: relative;
 }
+
 td th {
   width: 33.33%;
   padding: 5px;
@@ -552,13 +568,13 @@ tbody td:hover:before {
   width: 560px;
   background-size: cover;
 }
-.part1:hover{
+.part1:hover {
   background-image: url("images/mono-1.png");
   height: 555px;
   width: 560px;
   background-size: cover;
 }
-.part2{
+.part2 {
   height: 555px;
   width: 497px;
   background-color: white;
@@ -603,4 +619,185 @@ tbody td:hover:before {
   font-weight: 800;
   margin-top: -67px;
   margin-left: 565px;
+}
+
+                                       /* vehicl */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: #111;
+}
+
+select {
+  font-family: inherit;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.light-text {
+  color: #929292;
+}
+
+.button {
+  padding: 0 20px;
+  line-height: 32px;
+  border: 1px solid #111;
+  border-radius: 3px;
+  background-color: #111;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.button:hover {
+  background-color: #fff;
+  color: #111;
+}
+.button.secondary {
+  border: 1px solid #cccccc;
+  background-color: #fff;
+  color: #929292;
+}
+.button.secondary:hover {
+  border: 1px solid #111;
+  background-color: #fff;
+  color: #111;
+}
+
+.heading-lv1 {
+  margin-bottom: 26px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #4c49ff;
+}
+
+.dropdown-heading {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #929292;
+}
+
+.select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* delete browser picker */
+  padding-top: 0;
+  padding-left: 10px;
+  padding-right: 40px;
+  padding-bottom: 0;
+  line-height: 2;
+  background-color: #fff;
+  background-image: url(https://dl.dropbox.com/s/ru1dbh5omn3deeh/arrow.svg?dl=0);
+  background-repeat: no-repeat;
+  background-size: 10px 10px;
+  background-position: right 15px center;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+.select::-ms-expand {
+  display: none;
+  /* delete browser picker */
+}
+.select:hover {
+  border: 1px solid #929292;
+}
+.select:active,
+.select:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 2px #4c49ff;
+}
+
+
+.table-app {
+  min-width: 700px;
+}
+
+.table-handler {
+  margin-bottom: 16px;
+}
+.table-handler > * {
+  display: inline-block;
+}
+
+.table-handler-dropdown-cell {
+  padding-right: 16px;
+}
+
+.table-wrapper {
+  height: 70vh;
+  overflow-y: scroll;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-head {
+  line-height: 48px;
+}
+.table-head th {
+  position: sticky;
+  top: 0px;
+  background-color: #fff;
+  color: #4c49ff;
+  font-weight: bold;
+  box-shadow: 0px 2px 0px 0px #4c49ff;
+}
+
+.table-row {
+  line-height: 48px;
+  color: #111;
+}
+.table-row:nth-child(even) {
+  background-color: #f8f8f8;
+}
+.table-row:nth-child(odd) {
+  background-color: #eeeeee;
+}
+
+.table-cell {
+  white-space: nowrap;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.no-results {
+  padding: 40px 0;
+  text-align: center;
+}
+
+.no-results-message {
+  font-size: 22px;
+  color: #929292;
 }

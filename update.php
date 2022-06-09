@@ -1,26 +1,26 @@
 <?php
 include "connection.php";
-$select = mysqli_query($conn, "SELECT * FROM `client`");
-$row = mysqli_fetch_assoc($select);
-$id = $_REQUEST["ID_Client"];
-if (isset($_POST["submi"])) {
-    $fname = $_POST["fname"];
-    $lname = $_POST["lname"];
-    $phone = $_POST["phone"];
-    $adress = $_POST["Adress"];
-    $email = $_POST["Email"];
-    $cin = $_POST["cin"];
-
-    $sql = "UPDATE `client` SET `ID_Client`='$id',`Fname`=' $fname ',`Lname`='$lname',`Phone`='$phone ',`Adresse`='$adress',`Email`=' $email',`CIN`=' $cin'";
-    echo $sql;
-    $result = $conn->query($sql);
-    if ($conn->query($sql) === TRUE) {
-        echo "Record updated successfully";
-    } else {
-        echo "Error updating record: " . $conn->error;
+if(isset($_REQUEST["ID_Client"])){
+    $id = $_REQUEST["id"];
+    $data = "SELECT Fname,Lname,Phone,Adresse ,Email,CINFROM `client`WHERE id='$id'";
+    $get_data = $conn->query($data);
+    $rw = mysqli_fetch_assoc( $get_data);
+}  
+    if (isset($_POST["submi"])) {
+        $fname = $_POST["fname"];
+        $lname = $_POST["lname"];
+        $phone = $_POST["phone"];
+        $adress = $_POST["Adress"];
+        $email = $_POST["Email"];
+        $cin = $_POST["cin"];
+        $sql = "UPDATE `client` SET `Fname`=' $fname ',`Lname`='$lname',`Phone`='$phone ',`Adresse`='$adress',`Email`=' $email',`CIN`=' $cin' WHERE `ID_Client` = '".$_REQUEST["ID_Client"]."';";
+        $conn->query($sql);
+        echo "<script> alert'tetet tete '</script>";
+        header("location:cilent.php");
+        
     }
-}
-$conn->close();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -48,33 +48,34 @@ $conn->close();
 
             </div>
             <div class="part2">
-                <form class="update" action="client.php" method="post">
+                <form class="update"  method="POST">
                     <div class="content">
                         <ul>
                             <li>
-                                <input type="text" class="input" placeholder="first Name" name="fname" value="<?php echo $row["Fname"]; ?>">
+                                <input type="text" class="input" placeholder="first Name" name="fname" value="<?php echo $rw["Fname"]; ?>">
                             </li>
                             <li>
-                                <input type="text" class="input" placeholder="Last Name" name="lname" value="<?php echo $row["Lname"]; ?>">
+                                <input type="text" class="input" placeholder="Last Name" name="lname" value="<?php echo $rw["Lname"]; ?>">
                             </li>
                             <li>
-                                <input type="text" class="input" placeholder="Phone Number" name="phone" value="<?php echo $row["Phone"]; ?>">
+                                <input type="text" class="input" placeholder="Phone Number" name="phone" value="<?php echo $rw["Phone"]; ?>">
                             </li>
                             <li>
-                                <input type="text" class="input" placeholder="Adress" name="adress" value="<?php echo $row["Adresse"]; ?>">
+                                <input type="text" class="input" placeholder="Adress" name="adress" value="<?php echo $rw["Adresse"]; ?>">
                             </li>
                             <li>
-                                <input type="email" class="input" placeholder="Email" name="email" value="<?php echo $row["Email"]; ?>">
+                                <input type="email" class="input" placeholder="Email" name="email" value="<?php echo $rw["Email"]; ?>">
                             </li>
                             <li>
-                                <input type="text" class="input" placeholder="CIN" name="cin" value="<?php echo $row["CIN"]; ?>">
+                                <input type="text" class="input" placeholder="CIN" name="cin" value="<?php echo $rw["CIN"]; ?>">
                             </li>
 
                         </ul>
-                        <button type="submit" name="submit">UPDATE</button>
+                        <button  href="client.php" type="submit" name="submit">UPDATE</button>
 
-                    </div>
                 </form>
+                
+                    </div>
             </div>
         </div>
     </div>
