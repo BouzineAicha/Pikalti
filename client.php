@@ -12,7 +12,7 @@ if (isset($_POST["done"])) {
   $conn->query($sql);
 }
 
-?>
+?>   
 <!DOCTYPE html>
 <html lang="en">
 

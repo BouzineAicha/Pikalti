@@ -40,7 +40,8 @@ if(isset($_REQUEST["ID_Client"])){
 </head>
 
 <body>
-    <?php include "nav.php" ?>
+    <?php include "nav.php" 
+    ?>
     <div class="container">
         <h1>UPDATE</h1>
         <div class="cont">
