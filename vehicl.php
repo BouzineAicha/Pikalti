@@ -17,9 +17,8 @@ include "connection.php";
   <title>Document</title>
 </head>
 <body>
-
+<?php include"nav.php";?>
     <div class="container">
-      <h1 class="heading-lv1">Products</h1>
 
       <div class="table-app" id="product-table-app">
         <div class="table-handler">
@@ -82,32 +81,33 @@ include "connection.php";
           <table class="table" id="table">
             <thead>
               <tr class="table-head">
-                <th class="table-cell align-right">ID</th>
-                <th class="table-cell align-left"> Image</th>
-                <th class="table-cell align-left">Name</th>
-                <th class="table-cell align-left">Description</th>
-                <th class="table-cell align-left">Price per 1h</th>
-                <th class="table-cell align-right">Quantity</th>
-                <th class="table-cell align-left">Availablty</th>
+                <th class="table-cell align-right"style="text-align:center;vertical-align: -webkit-baseline-middle;">ID</th>
+                <th class="table-cell align-left"style="text-align:center;vertical-align: -webkit-baseline-middle;"> Image</th>
+                <th class="table-cell align-left"style="text-align:center;vertical-align: -webkit-baseline-middle;">Name</th>
+                <th class="table-cell align-left"style="text-align:center;vertical-align: -webkit-baseline-middle;">Description</th>
+                <th class="table-cell align-left"style="text-align:center;vertical-align: -webkit-baseline-middle;">Price per1h </th>
+                <th class="table-cell align-right"style="text-align:center;vertical-align: -webkit-baseline-middle;">Quantity</th>
+                <th class="table-cell align-left"style="text-align:center;vertical-align: -webkit-baseline-middle;">Availablty</th>
+                <th class="table-cell align-left"style="text-align:center;vertical-align: -webkit-baseline-middle;">Category</th>
                 
               </tr>
             </thead>
 
             <tbody>
-            <tr>
+            <tr >
                 <?php
                   $sql = "SELECT * FROM `vehicle`";           
                       $result = $conn->query($sql);                                 
                 foreach ($result as $row) {
                 ?>
-                  <td style="width: 80px;text-align:center"> <i class='fa fa-user 2x btn' style="font-size:15px ; color:#2f3449 ;"><?php echo $row["ID_Vehicle"] ?></i> </td>
-                  <td style="width: 150px;text-align:center"> <img src="images/<?php echo $row['img'] ?>"style="width:63px;text-align:center" ></td>
-                  <td style="width: 150px;text-align:center"><?php echo $row["Name"] ?></td>
-                  <td style="width: 180px;text-align:center"> <a href="update.php? id=<?php echo $row["ID_Vehicle"]; ?>"> <i class='fa fa-edit 2x btn' style="font-size:20px ; color:#2f3449; display: table;border-collapse: collapse;border-spacing: 0; text-decoration: none; "></i> </a></td>
-                  <td style="width: 180px;text-align:center"><?php echo $row["daily_hour_Rate"] ?></td>
-                  <td style="width: 100px;text-align:center"><?php echo $row["quantity_stock"] ?></td>
-                  <td style="width: 100px;text-align:center"><?php echo $row["availablity"] ?></td>
-              
+                  <td style="vertical-align: -webkit-baseline-middle;width:73px;text-align:center;"> <i class='fa fa-user 2x btn' style="font-size:15px ; color:#2f3449 ;"><?php echo $row["ID_Vehicle"] ?></i> </td>
+               <td style="vertical-align: -webkit-baseline-middle;width:140px;text-align:center;" > <img src="images/<?php echo $row['img'] ?>"style="width:63px;" ></td>
+                  <td style="vertical-align: -webkit-baseline-middle;width: 135px;text-align:center;"><?php echo $row["Name"] ?></td>
+                  <td style="vertical-align: -webkit-baseline-middle;width: 239px;left: 119px;"> <a href="description.php? id=<?php echo $row["ID_Vehicle"]; ?>"> <i class='fa fa-edit 2x btn' style="font-size:20px ; color:#2f3449; display: table;border-collapse: collapse;border-spacing: 0; text-decoration: none; "></i> </a></td>
+                  <td style="vertical-align: -webkit-baseline-middle;width: 209px;text-align:center;"><?php echo $row["daily_hour_Rate"] ?></td>
+                  <td style="vertical-align: -webkit-baseline-middle;width: 176px;text-align:center;"><?php echo $row["quantity_stock"] ?></td>
+                  <td style="vertical-align: -webkit-baseline-middle;width: 186px;text-align:center;"><?php echo $row["availablity"] ?></td>
+                  <td style="vertical-align: -webkit-baseline-middle;width:140px;text-align:center;"><img src="images/<?php echo $row['img'] ?>"style="width:63px;" ></td>
               </tr>
             <?php
                 }

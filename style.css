@@ -390,6 +390,7 @@ tbody {
   overflow-y: scroll;
 }
 tbody td {
+
   position: relative;
 }
 
@@ -754,13 +755,14 @@ select {
 }
 
 .table-wrapper {
-  height: 70vh;
-  overflow-y: scroll;
+  /* height: 70vh; */
+  /* overflow-y: scroll; */
 }
 
 .table {
   width: 100%;
   border-collapse: collapse;
+  
 }
 
 .table-head {
