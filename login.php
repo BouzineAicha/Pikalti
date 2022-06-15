@@ -6,24 +6,16 @@
 if (isset($_POST['submit'])) {
   $email = $_POST['managerEmail'];
   $password = $_POST['managerPassword'];
-
-  $sql = "SELECT * FROM `manager` WHERE `email` ='" . $email . "' AND  `password` ='" . $password . "'" ;
- 
+  $sql = "SELECT * FROM `manger` WHERE `email` ='" . $email . "' AND  `password` ='" . $password . "'";
   $result = mysqli_query($conn, $sql);
   if (mysqli_num_rows($result) == 1) {
-    session_start();
-    
-    //  $_SESSION["fullName"]= $_POST['fullName'];
- 
     $_SESSION["email"] = $_POST['managerEmail'];
-    // $_SESSION['fullName'] = $firstname;
-
     header("location:home.php");
   } else {
-    echo "<p style ='color:red'> the password not correct </p>";
+    echo "<script>alert('the password or email address is not correct') </script>";
   }
-
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -42,7 +34,7 @@ if (isset($_POST['submit'])) {
 background-size: cover;
 width: 100%;
 height: auto;">
-<!-- <img src="images/loginbackground.jpg> -->
+  <!-- <img src="images/loginbackground.jpg> -->
   <div id="body">
     <div class="login">
       <h1>login</h1>
@@ -53,9 +45,10 @@ height: auto;">
         <h2>password</h2>
         <input type="password" class="input" name="managerPassword" style="color:#000000;">
         <button type="submit" name="submit" onkeydown="validation()">done</button>
- </form>
+      </form>
 
-</div>
-</div>
-</body >
+    </div>
+  </div>
+</body>
+
 </html>

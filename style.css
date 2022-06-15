@@ -186,14 +186,18 @@ top: 80%;
   width: 250px;
   top: 80%;
 }
-
+.scrollable.hover{
+  display: none;
+}
 .no-touch .scrollable.hover {
   overflow-y: hidden;
+ 
 }
 
 .no-touch .scrollable.hover:hover {
   overflow-y: auto;
   overflow: visible;
+ 
 }
 
 a:hover,
@@ -388,7 +392,30 @@ tbody {
   display: block;
   max-height: 598px;
   overflow-y: scroll;
+
+  
 }
+/* ===== Scrollbar CSS ===== /
+  / Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #f0f0f0 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #2f3449;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
 tbody td {
 
   position: relative;
@@ -803,3 +830,126 @@ select {
   font-size: 22px;
   color: #929292;
 }
+
+                             /* home */
+.box{
+  display: flex;
+  flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  width: 263px;
+  height: 182px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 6px;
+  box-shadow: 8px 8px 16px rgb(0 0 0 / 8%);
+}
+
+.box a{
+ color:#A6B9D6;
+ margin-left: 140px;
+}
+.box h2{
+  margin-left: 28px;
+}
+.box p{ 
+  margin-left: 19px;
+}
+.info{
+  display: flex;
+justify-content:space-between;
+}
+.info2{
+  margin-top: 10px;
+  display: flex;
+justify-content:space-between;
+}
+.vlo {
+  margin-top: 5px;
+  background: rgba(166,185,214,1);
+  width: 2px;
+  height: 168px;
+}
+.vlo2 {
+  margin-top: 5px;
+  background: #7da259;
+  width: 2px;
+  height: 168px;
+}
+.vlo3 {
+  margin-top: 5px;
+  background: #ff6969;
+  width: 2px;
+  height: 168px;
+}
+.vlo4 {
+  margin-top: 5px;
+  background: #BEA6D6;
+  width: 2px;
+  height: 168px;
+}
+.vlo5 {
+  margin-top: 5px;
+  background: #f0f460;
+  width: 2px;
+  height: 168px;
+}
+.vlo6 {
+  margin-top: 5px;
+  background: #ffc155;
+  width: 2px;
+  height: 168px;
+}
+
+                                     /* description */
+ .decription{
+   display: flex;
+   justify-content: space-between;
+    font-family: "Montserrat";
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 44px;
+ } 
+ .decription h2{
+  display: flex;
+  justify-content: space-between;
+  font-family: "Montserrat";
+font-style: normal;
+font-weight: 800;
+font-size: 36px;
+line-height: 44px;
+ }    
+ .decription span{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 44px;
+ 
+
+ }      
+  
+ .des{
+   margin: auto;
+ }   
+ .form p{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 15px;
+  line-height: 44px;
+ }                         
+ .form .des p{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 44px;
+ }                         
+ .form span{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 44px;
+ }                         
