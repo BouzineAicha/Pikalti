@@ -4,7 +4,15 @@ if (isset($_POST["logout"])) {
     session_destroy();
     header("location:login.php");
 }
-?>
+$search = "";
+            if(isset($_POST['search-btn'])){
+                $search = $_POST['search'];
+               
+            } 
+
+               
+
+                        ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,9 +23,12 @@ if (isset($_POST["logout"])) {
             height: 36px;">
         <div>
             <div class="khat"></div>
+            <form method="POST">
             <input id="search-box" type="text" class="search-box" name="q" />
-            <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label>
-            <input type="submit" id="search-submit" />
+           <button name="search-btn"> <label for="search-box"><span class="glyphicon glyphicon-search search-icon"></span></label></button>
+            <input type="submit" id="search-submit" name="search" />
+            
+            </form>
             <img src="./images/user.jpg" style="
     width: 40px;
     height: 40px;

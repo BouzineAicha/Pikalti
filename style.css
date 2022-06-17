@@ -332,10 +332,10 @@ nav.main-menu li.active > a,
   color: #3d4752;
 }
 .container {
-  position: fixed;
-  margin-top: 436px;
-  margin-left: 48%;
-  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 60px;
+  left: 100px;
+  width: 90%;
 }
 table {
   font-family: "Montserrat";
@@ -837,12 +837,14 @@ select {
   flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
-  width: 263px;
+  width: 30%;
+
   height: 182px;
   background: rgba(255, 255, 255, 1);
   border-radius: 6px;
   box-shadow: 8px 8px 16px rgb(0 0 0 / 8%);
 }
+
 
 .box a{
  color:#A6B9D6;
@@ -859,8 +861,8 @@ select {
 justify-content:space-between;
 }
 .info2{
-  margin-top: 10px;
-  display: flex;
+  margin-top: 75px;
+    display: flex;
 justify-content:space-between;
 }
 .vlo {
@@ -953,3 +955,7 @@ line-height: 44px;
   font-size: 26px;
   line-height: 44px;
  }                         
+ .map{
+   display:flex;
+   justify-content: space-between;
+ }

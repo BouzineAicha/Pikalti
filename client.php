@@ -1,6 +1,6 @@
-<?php 
-include "connection.php";
+<?php
 session_start();
+include "connection.php";
 if (isset($_POST["done"])) {
   $fname = $_POST["fname"];
   $lname = $_POST["lname"];
@@ -11,11 +11,11 @@ if (isset($_POST["done"])) {
   $sql ="INSERT INTO `client`(`Fname`, `Lname`, `Phone`, `Adresse`, `Email`, `CIN`) VALUES (' $fname','$lname','$phone','$adress','$email','$cin')";
   $conn->query($sql);
 }
-
-?>   
+ 
+?>
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,19 +30,19 @@ if (isset($_POST["done"])) {
   <title>Document</title>
 </head>
 <?php include 'nav.php'; ?>
-
+ 
 <body>
   <div class="container">
-    
+   
       <!-- <span class="nav-text" >
-  
+ 
   <a href="addClient.php" class="add"><i class="fa fa-user-plus fa-2x" style="width:0;height:0;"></i>Add New Client </a>
   </span> -->
   <form action="client.php" method="post">
       <div class="popup-container">
         <label class="button" for="login-popup">ADD Client</label>
         <input type="checkbox" id="login-popup">
-        
+       
         <div class="popup">
           <label for="login-popup"></label>
           <div class="inner">
@@ -56,30 +56,30 @@ if (isset($_POST["done"])) {
               <ul>
                 <li>
                   <input type="text" class="input" placeholder="First Name"name="fname">
-
+ 
                 </li>
                 <li>
                   <input type="text" class="input" placeholder="Last Name"name="lname">
-
+ 
                 </li>
                 <li>
                   <input type="text" class="input" placeholder="Phone Number" name="phone">
-
+ 
                 </li>
                 <li>
                   <input type="text" class="input" placeholder="Adress" name="Adress">
-
+ 
                 </li>
                 <li>
                   <input type="email" class="input" placeholder="Email" name="Email">
-
+ 
                 </li>
                 <li>
                   <input type="text" class="input" placeholder="CIN" name="cin">
-
+ 
                 </li>
                
-                
+               
               </ul>
               <button type="submit"name="done">Submit</button>
             </div>
@@ -87,75 +87,88 @@ if (isset($_POST["done"])) {
         </div>
         </form>
           <table style="overflow-y:scroll">
-
+ 
             <thead>
-
+ 
               <tr>
-                <th style="width: 80px;text-align:center">ID</th>
-                <th style="width: 150px;text-align:center">First Name</th>
-                <th style="width: 150px;text-align:center">Last Name</th>
-                <th style="width: 150px;text-align:center">Phone number</th>
-                <th style="width: 180px;text-align:center">adresse</th>
+                <th style="width: 80px;">ID</th>
+                <th style="width: 150px;">First Name</th>
+                <th style="width: 150px;">Last Name</th>
+                <th style="width: 150px;">Phone number</th>
+                <th style="width: 180px;">adresse</th>
                 <!-- <th>password</th> -->
-                <th style="width: 180px;text-align:center">email</th>
-                <th style="width: 100px;text-align:center">cin</th>
-                <th style="width: 140px;text-align:center">Delete</th>
+                <th style="width: 180px;">email</th>
+                <th style="width: 100px;">cin</th>
+                <th style="width: 140px;">Delete</th>
                 <th> Edit </th>
               </tr>
             </thead>
-
-
+ 
+ 
             <tbody>
               <tr>
                 <?php
-                  $sql = "SELECT * FROM `client`";           
-                    $id = $_REQUEST["ID_Client"];
-                      $result = $conn->query($sql);
-                      $delete = "DELETE FROM `client`WHERE `ID_Client`='$id'";                 
-                      $conn->query($delete);
-             $result = $conn->query($sql);
-                foreach ($result as $row) {
-                ?>
-                  <td style="width: 80px;text-align:center"> <i class='fa fa-user 2x btn' style="font-size:15px ; color:#2f3449 ;"><?php echo $row["ID_Client"] ?></i> </td>
-                  <td style="width: 150px;text-align:center"><?php echo $row["Fname"] ?></td>
-                  <td style="width: 150px;text-align:center"><?php echo $row["Lname"] ?></td>
-                  <td style="width: 150px;text-align:center"><?php echo $row["Phone"] ?></td>
-                  <td style="width: 180px;text-align:center"><?php echo $row["Adresse"] ?></td>
-                  <td style="width: 180px;text-align:center"><?php echo $row["Email"] ?></td>
-                  <td style="width: 100px;text-align:center"><?php echo $row["CIN"] ?></td>
-                  <td style="width: 140px;text-align:center">
+                     if(isset($_GET['ID_delete'])){
+                      $id = $_GET["ID_delete"];        
+                      $delete = "DELETE FROM `client`WHERE `ID_Client`='$id'";                
+                      $resultdelet = mysqli_query($conn,$delete);
+                   if ($resultdelet) {
+                    echo "
+                     $id deleted";
+                   }  
+                }
+                     $sql = "SELECT* FROM `client`";                
+                     $result = mysqli_query($conn,$sql);
+               
+                while ( $row = mysqli_fetch_assoc($result)){
+ 
+                  ?>
+                  <td style="width: 80px;"> <i class='fa fa-user 2x btn' style="font-size:15px ; color:#2f3449 ;"><?php echo $row["ID_Client"] ?></i> </td>
+                  <td style="width: 150px;"><?php echo $row["Fname"] ?></td>
+                  <td style="width: 150px;"><?php echo $row["Lname"] ?></td>
+                  <td style="width: 150px;"><?php echo $row["Phone"] ?></td>
+                  <td style="width: 180px;"><?php echo $row["Adresse"] ?></td>
+                  <td style="width: 180px;"><?php echo $row["Email"] ?></td>
+                  <td style="width: 100px;"><?php echo $row["CIN"] ?></td>
+                  <td style="width: 140px;">
                     <form action="client.php" method="post">
                       <input type="hidden" name="name" value="">
-                      <a   href="client.php?ID_Client=<?php echo $row["ID_Client"]; ?>" onClick="return confirm('Are you sure you want to delete?')"> <i class='bx bx-trash icon 2x btn' style="font-size:25px ; color:#2f3449; "></i></a>
-                      <?php
-                      
+                      <a   href="client.php?ID_delete=<?php echo $row["ID_Client"]; ?>"onClick="return confirm('Are you sure you want to delete?')"> <i class='bx bx-trash icon 2x btn' style="font-size:25px ; color:#2f3449; background-color: #E3E3E3 "></i></a>
+                     
                  
-                         
-                      ?>
                     </form>
                   </td>
-                  <td style="width: 140px;text-align:center">
-                    
-                    <a href="update.php? id=<?php echo $row["ID_Client"]; ?>"> <i class='fa fa-edit 2x btn' style="font-size:20px ; color:#2f3449;
-            display: table;
-            border-collapse: collapse;
-            border-spacing: 0;
-            text-decoration: none; "></i> </a>
+             
+                  <td style="width: 140px;">
+                   
+                    <a href="update.php? id=<?php echo $row["ID_Client"]; ?>"> <i class='fa fa-edit 2x btn' style="font-size:25px ; color:#2f3449;background-color: #E3E3E3; display: table;border-collapse: collapse;border-spacing: 0;text-decoration: none;"></i></a>
                   </td>
               </tr>
-            <?php
+                  <?php
                 }
+               
+                   
+         
+   
+               
+                ?>
+                 
+                         
+                   
+           
+            <?php
+               
                 $conn->close();
-            ?>
-
+             ?>
+ 
             </form>
-
-
-
+ 
+ 
+ 
             </tbody>
           </table>
         </div>
       </div>
 </body>
-
+ 
 </html>

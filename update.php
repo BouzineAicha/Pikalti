@@ -1,31 +1,35 @@
 <?php
+ 
 include "connection.php";
-if(isset($_REQUEST["ID_Client"])){
-    $id = $_REQUEST["id"];
-    $data = "SELECT Fname,Lname,Phone,Adresse ,Email,CINFROM `client`WHERE id='$id'";
-    $get_data = $conn->query($data);
-    $rw = mysqli_fetch_assoc( $get_data);
-}  
-    if (isset($_POST["submi"])) {
-        $fname = $_POST["fname"];
-        $lname = $_POST["lname"];
-        $phone = $_POST["phone"];
-        $adress = $_POST["Adress"];
-        $email = $_POST["Email"];
-        $cin = $_POST["cin"];
-        $sql = "UPDATE `client` SET `Fname`=' $fname ',`Lname`='$lname',`Phone`='$phone ',`Adresse`='$adress',`Email`=' $email',`CIN`=' $cin' WHERE `ID_Client` = '".$_REQUEST["ID_Client"]."';";
-        $conn->query($sql);
-        echo "<script> alert'tetet tete '</script>";
-        header("location:cilent.php");
-        
+$id =$_GET['id'];
+$select = mysqli_query($conn,"SELECT * FROM `client`WHERE ID_Client=$id");
+if (isset($_POST["submit"])) {
+    $fname = $_POST["fname"];
+    $lname = $_POST["lname"];
+    $phone = $_POST["phone"];
+    $adress = $_POST["adress"];
+    $email = $_POST["email"];
+    $cin = $_POST["cin"];
+    $update ="UPDATE `client` SET `ID_Client`='$id ',`Fname`='$fname',`Lname`='$lname',`Phone`='$phone',`Adresse`='$adress',`Email`='$email',`CIN`='$cin ' WHERE ID_Client=$id";
+    $result = mysqli_query($conn,$update);
+    if ($result) {
+        header("location:client.php");
     }
-
-
+    else{
+        echo "yanlslek var";
+    }
+}
+foreach ($select  as $row) {
 ?>
-
+ 
+ 
+ 
+ 
+ 
+ 
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,48 +42,47 @@ if(isset($_REQUEST["ID_Client"])){
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-
+ 
 <body>
-    <?php include "nav.php" 
-    ?>
+    <?php include "nav.php" ?>
     <div class="container">
         <h1>UPDATE</h1>
         <div class="cont">
             <div class="part1">
-
+ 
             </div>
             <div class="part2">
-                <form class="update"  method="POST">
+                <form class="update" method="post">
                     <div class="content">
                         <ul>
                             <li>
-                                <input type="text" class="input" placeholder="first Name" name="fname" value="<?php echo $rw["Fname"]; ?>">
+                                <input type="text" class="input" placeholder="first Name" name="fname" value="<?php echo $row["Fname"]; ?>">
                             </li>
                             <li>
-                                <input type="text" class="input" placeholder="Last Name" name="lname" value="<?php echo $rw["Lname"]; ?>">
+                                <input type="text" class="input" placeholder="Last Name" name="lname" value="<?php echo $row["Lname"]; ?>">
                             </li>
                             <li>
-                                <input type="text" class="input" placeholder="Phone Number" name="phone" value="<?php echo $rw["Phone"]; ?>">
+                                <input type="text" class="input" placeholder="Phone Number" name="phone" value="<?php echo $row["Phone"]; ?>">
                             </li>
                             <li>
-                                <input type="text" class="input" placeholder="Adress" name="adress" value="<?php echo $rw["Adresse"]; ?>">
+                                <input type="text" class="input" placeholder="Adress" name="adress" value="<?php echo $row["Adresse"]; ?>">
                             </li>
                             <li>
-                                <input type="email" class="input" placeholder="Email" name="email" value="<?php echo $rw["Email"]; ?>">
+                                <input type="email" class="input" placeholder="Email" name="email" value="<?php echo $row["Email"]; ?>">
                             </li>
                             <li>
-                                <input type="text" class="input" placeholder="CIN" name="cin" value="<?php echo $rw["CIN"]; ?>">
+                                <input type="text" class="input" placeholder="CIN" name="cin" value="<?php echo $row["CIN"]; ?>">
                             </li>
-
+ 
                         </ul>
-                        <button  href="client.php" type="submit" name="submit">UPDATE</button>
-
-                </form>
-                
+                        <button type="submit" name="submit">UPDATE</button>
+ 
                     </div>
+                </form>
             </div>
         </div>
     </div>
+  <?php   }?>
 </body>
-
+ 
 </html>
