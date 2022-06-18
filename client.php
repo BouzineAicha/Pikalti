@@ -32,13 +32,13 @@ if (isset($_POST["done"])) {
 <?php include 'nav.php'; ?>
  
 <body>
-  <div class="container">
+  <div class="client">
    
       <!-- <span class="nav-text" >
  
   <a href="addClient.php" class="add"><i class="fa fa-user-plus fa-2x" style="width:0;height:0;"></i>Add New Client </a>
   </span> -->
-  <form action="client.php" method="post">
+  <form action="client.php" method="post" >
       <div class="popup-container">
         <label class="button" for="login-popup">ADD Client</label>
         <input type="checkbox" id="login-popup">
@@ -167,6 +167,8 @@ if (isset($_POST["done"])) {
  
             </tbody>
           </table>
+       <br>
+       <br>
         </div>
       </div>
 </body>

@@ -40,40 +40,44 @@
     <title>Document</title>
   </head>
  
-  <body>
-    <nav></nav>
- 
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-            <div class="swiper-slide">1</div>
-            <div class="swiper-slide">2</div>
-            <div class="swiper-slide">HM</div>
-            <div class="swiper-slide">HJ</div>
-            <div class="swiper-slide">H></div>
-            <div class="swiper-slide">H></div>
-            <!-- <div class="swiper-slide">Slide 7</div>
-            <div class="swiper-slide">Slide 8</div>
-            <div class="swiper-slide">Slide 9</div> -->
-      </div>
-      <!-- <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div> -->
-      <div class="swiper-pagination"></div>
-    </div>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js%22%3E"></script>
-    <script >
-              var swiper = new Swiper(".mySwiper", {
-        spaceBetween: 30,
-        centeredSlides: true,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-});
-</script>
+   <nav>
+        <ul>
+            <img src="images/bike-removebg-preview.png" style=" height: 36px;margin-left: -52px;margin-top: 4px;">
+            <div></div>
+            <div></div>
+            <li class="list"><a href="#">Home</a></li>
+            <li class="list"><a href="#">About Us</a></li>
+            <li class="list"><a href="#">Our Team</a></li>
+            <li class="list"><a href="#"> New Vehicles</a></li>
+            <li class="list"><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <header>
+        <div class="swiper mySwiper">
+          
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/Group 39.png" alt="icon_Languages" height="100vh"/></div>
+                <div class="swiper-slide" width="0px"></div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <script src="index.js"></script>
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                spaceBetween: 30,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        </script>
+    </header>
+
     <div class="quality">
       <div class="Qlt">
         <i
@@ -142,9 +146,7 @@
     </div>
     <div class="content">
       <div class="title">
-        <div class="image">
           <img src="images/illustration-bike-man-2-BROWN 2.png" width="150px" />
-        </div>
         <div>
           <h1>About Us</h1>
           <div class="line"></div>
@@ -153,6 +155,7 @@
         <div></div>
       </div>
 <div class="con">
+  <div class="about">
       <p>
         What makes our booking bikes stand out? Not only do the products from
         our offer come at the lowest possible price on the market, but we also
@@ -165,11 +168,12 @@
         commuting), BMX & dirt jump bikes, folding bikes, electric bikes and
         kids bikes and difirant scootres
       </p>
+  </div>
       </div>
       <div class="title">
-        <div class="image">
+
           <img src="images/illustration-footer-woman 2.png" width="150px" />
-        </div>
+
         <div>
           <h1>Our Team</h1>
           <div class="line2"></div>
@@ -189,7 +193,7 @@
                 <div class="card__side card__side--back card__side--back-2">
                   <div class="card__cta">
                     <div class="card__price-box">
-                      <h4 class="card__heading">managementar team</h4>
+                      <h4 class="card__heading">Managers</h4>
                       <p class="card__price-only">
                       A team is keen to assist you and facilitate the booking process
                       </p>
@@ -213,8 +217,7 @@
                     <div class="card__price-box">
                       <h4 class="card__heading">Maintenance Team</h4>
                       <p class="card__price-only">
-                        An empowered team maintains vehicles throughout the day
-                        to maintain their safety and the safety of their users
+                      An empowered team maintains vehicles throughout the day
                       </p>
                     </div>
                     <a href="#popup" class="btn btn--white"
@@ -250,18 +253,14 @@
       </div>
       <div class="vehicles">
         <div class="title">
-          <div></div>
-          <div></div>
           <div>
             <h1>New Vehicles</h1>
             <div class="line3" ></div>
           </div>
-          <div class="image">
             <img
               src="images/illustration-bike-man-2-footer 3.png"
               width="150px"
             />
-          </div>
         </div>
         <div class="articl1">
           <div class="vhc"></div>
@@ -269,8 +268,7 @@
           <div class="vhc"></div>
           <div class="vhc"></div>
         </div>
-                  <br><br><br>
-        <div class="articl2">
+        <div class="articl1">
           <div class="vhc"></div>
           <div class="vhc"></div>
           <div class="vhc"></div>
@@ -280,10 +278,10 @@
       <div class="contact">
         <div class="title">
          
-            <div class="image">
+
               <img
                 src="images/contact.png" >
-            </div>
+  
             <div style="margin-left:122px;">
               <h1 >Contact Us</h1>
               <div class="line4" ></div>
@@ -296,7 +294,7 @@
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6473.712022649271!2d-5.79931147645496!3d35.77891317478888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0c7f5e8ddd6977%3A0xaae734f33a6125af!2sPlage%20municipale!5e0!3m2!1sfr!2sma!4v1655421728705!5m2!1sfr!2sma" width="464px" height="409px" style="border-radius:10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <div class="con">
-<p>We would love hearing from you and moreover meeting you in person.<br> Below you can find all contact details.<br> See you soon!</p>
+<p>We would love hearing from you and moreover meeting you in person.<br> Below you can find all contact details.<br> See you soon!</p><br><br>
 <p>Give us a call
  
     Mon – Fri, 9am – 7pm EST:

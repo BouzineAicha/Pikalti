@@ -333,10 +333,23 @@ nav.main-menu li.active > a,
 }
 .container {
   position: absolute;
-  top: 60px;
+  top: 100px;
   left: 100px;
   width: 90%;
 }
+.client{
+  position: absolute;
+    top: 70px;
+    left: 239px;
+   
+}
+.reservation{
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 90%;
+}
+
 table {
   font-family: "Montserrat";
   font-style: normal;

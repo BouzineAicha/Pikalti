@@ -29,7 +29,7 @@ $result=mysqli_query($conn,$sql);
 foreach($result as $row){
 ?>
 <div class="maps">
-    <iframe src="<?php echo $row["adresse"]; ?>" width="200px" height="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <iframe src="<?php echo $row["link"]; ?>" width="200px" height="200px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
   <?php } ?>
 </div>

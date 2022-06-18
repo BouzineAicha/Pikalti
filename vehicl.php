@@ -38,6 +38,7 @@ include "connection.php";
                 <th class="table-cell align-left"style="text-align:center;vertical-align: -webkit-baseline-middle;">Category</th>
                 <th class="table-cell align-left"style="text-align:center;vertical-align: -webkit-baseline-middle;">Size</th>
                 <th class="table-cell align-left"style="text-align:center;vertical-align: -webkit-baseline-middle;">type</th>
+                <th class="table-cell align-left"style="text-align:center;vertical-align: -webkit-baseline-middle;">Reserve</th>
                 
               </tr>
             </thead>
@@ -62,6 +63,7 @@ include "connection.php";
                   <td style="vertical-align: -webkit-baseline-middle;width:140px;text-align:center;"><?php echo $row['type'] ?></td>
                   <td style="vertical-align: -webkit-baseline-middle;width:140px;text-align:center;"><?php echo $row['size_name'] ?></td>
                   <td style="vertical-align: -webkit-baseline-middle;width:140px;text-align:center;"><?php echo $row['name'] ?></td>
+                  <td style="vertical-align: -webkit-baseline-middle;width:140px;text-align:center;"><a href="Reservation.php?id=<?php echo $row["ID_Vehicle"]; ?>"> <i class='fa fa-edit 2x btn' style="font-size:25px ; color:#2f3449;background-color: #E3E3E3; display: table;border-collapse: collapse;border-spacing: 0;text-decoration: none;"></i></a></td>
               </tr>
             <?php
                 }

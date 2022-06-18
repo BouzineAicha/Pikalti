@@ -11,12 +11,14 @@ if (isset($_POST['submit'])) {
   $sql = "SELECT * FROM `manger` WHERE `email` ='" . $email . "' AND  `password` ='" . $password . "'" ;
  
   $result = mysqli_query($conn, $sql);
+  $row_assoc=$result->fetch_assoc();
   if (mysqli_num_rows($result) == 1) {
     session_start();
    
     //  $_SESSION["fullName"]= $_POST['fullName'];
  
-    $_SESSION["email"] = $_POST['managerEmail'];
+    $_SESSION["email"] =$_POST['managerEmail'];
+    // $_SESSION["fnam"] = $row_assoc['fullName'];
     // $_SESSION['fullName'] = $firstname;
  
     header("location:home.php");
