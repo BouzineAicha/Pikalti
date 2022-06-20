@@ -1,5 +1,7 @@
 <?php 
 include "connection.php";
+session_start();
+$_SESSION["test"]=$_GET['idc'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,12 +20,11 @@ include "connection.php";
 </head>
 <body>
 <?php include"nav.php";?>
-    <div class="container">
-
+    <div class="vehicle">
+      <h1 style="text-align:center;">Reservations</h1>
       <div class="table-app" id="product-table-app">
-        
+      <?php echo $_SESSION["test"];?>
         <!-- /.table-handler -->
-
         <div class="table-wrapper">
           <table class="table" id="table">
             <thead>
@@ -46,10 +47,21 @@ include "connection.php";
             <tbody>
             <tr >
                 <?php
-                  $sql = "SELECT *
-                  FROM `vehicle` inner join category on vehicle.cat_id=category.ID_Category INNER join size on vehicle.size_id=size.size_ID inner join type on vehicle.type_id=type.ID_type
-                 ";           
-                      $result = $conn->query($sql);                                 
+                $search = "";
+                if(isset($_POST['search-btn'])){
+                    $search = $_POST['search'];
+                } 
+                $sql = "SELECT *FROM `vehicle` inner join category 
+                on vehicle.cat_id=category.ID_Category
+                 INNER join size on vehicle.size_id=size.size_ID 
+                 inner join type on vehicle.type_id=type.ID_type
+                  WHERE  vehicle.`ID_Vehicle` LIKE '%$search%' OR vehicle.`daily_hour_Rate` LIKE '%$search%' OR vehicle.`quantity_stock` LIKE '%$search%' OR vehicle.`availablity`
+                 LIKE '%$search%' OR category.`type` LIKE '%$search%' OR size.`size_name` LIKE '%$search%'OR type.`name` LIKE '%$search%'";
+                $result = mysqli_query($conn,$sql);
+                 $test =mysqli_num_rows($result);
+                
+
+                   if( $test>0){ 
                 foreach ($result as $row) {
                 ?>
                   <td style="vertical-align: -webkit-baseline-middle;width:73px;text-align:center;"> <i class='fa fa-user 2x btn' style="font-size:15px ; color:#2f3449 ;"><?php echo $row["ID_Vehicle"] ?></i> </td>
@@ -63,18 +75,27 @@ include "connection.php";
                   <td style="vertical-align: -webkit-baseline-middle;width:140px;text-align:center;"><?php echo $row['type'] ?></td>
                   <td style="vertical-align: -webkit-baseline-middle;width:140px;text-align:center;"><?php echo $row['size_name'] ?></td>
                   <td style="vertical-align: -webkit-baseline-middle;width:140px;text-align:center;"><?php echo $row['name'] ?></td>
-                  <td style="vertical-align: -webkit-baseline-middle;width:140px;text-align:center;"><a href="Reservation.php?id=<?php echo $row["ID_Vehicle"]; ?>"> <i class='fa fa-edit 2x btn' style="font-size:25px ; color:#2f3449;background-color: #E3E3E3; display: table;border-collapse: collapse;border-spacing: 0;text-decoration: none;"></i></a></td>
+                  <?php if ($row["availablity"]==1){ echo " 
+                  <td style='vertical-align: -webkit-baseline-middle;width:140px;text-align:center;'><button class='btn1'><a href='Reservation.php?idv= $row[ID_Vehicle] '>Book Now</button></a></td>";
+                  
+                  }else{
+                    echo " 
+                    <td style='vertical-align: -webkit-baseline-middle;width:140px;text-align:center;'><button class='btn2'><a href=''></a>Book Now</button></td>";
+                  }
+                  ?>
               </tr>
             <?php
                 }
+              }
                 $conn->close();
             ?>
 
-            </form>
+</form>
 
             </tbody>
           </table>
 
+          
           <div class="no-results hidden" id="no-results">
             <p class="no-results-message">
               No results found.

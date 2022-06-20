@@ -1,3 +1,4 @@
+<?php include "connection.php";?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -56,8 +57,8 @@
         <div class="swiper mySwiper">
           
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="images/Group 39.png" alt="icon_Languages" height="100vh"/></div>
-                <div class="swiper-slide" width="0px"></div>
+                <div class="swiper-slide"><img src="images/Group 39.png" alt="icon_Languages" height="60px"/></div>
+                <div class="swiper-slide" ></div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
@@ -77,7 +78,6 @@
             });
         </script>
     </header>
-
     <div class="quality">
       <div class="Qlt">
         <i
@@ -171,9 +171,7 @@
   </div>
       </div>
       <div class="title">
-
           <img src="images/illustration-footer-woman 2.png" width="150px" />
-
         <div>
           <h1>Our Team</h1>
           <div class="line2"></div>
@@ -262,23 +260,26 @@
               width="150px"
             />
         </div>
-        <div class="articl1">
-          <div class="vhc"></div>
-          <div class="vhc"></div>
-          <div class="vhc"></div>
-          <div class="vhc"></div>
+        <?php      $sqll ="SELECT * FROM `vehicle` inner join category on vehicle.cat_id=category.ID_Category where `category`.`type`='Bicycle' LIMIT 4;";           
+                      $resultt = $conn->query($sqll);    ?>                                     
+                      <div class="articl1">
+         <?php foreach ($resultt as $row) {?>
+          <div class="vhc"> <img src="images/<?php echo $row['img']?>"style=" width: 177px; "></div>
+          <?php } ?>
+         
         </div>
-        <div class="articl1">
-          <div class="vhc"></div>
-          <div class="vhc"></div>
-          <div class="vhc"></div>
-          <div class="vhc"></div>
+        <?php      $sql ="SELECT * FROM `vehicle` inner join category on vehicle.cat_id=category.ID_Category where `category`.`type`='Scooter' LIMIT 4;";           
+                      $result = $conn->query($sql);    ?>                                     
+                      <div class="articl1">
+         <?php foreach ($result as $row) {?>
+          <div class="vhc"> <img src="images/<?php echo $row['img']?>" style=" width: 177px; "></div>
+          <?php } ?>
         </div>
+        
       </div>
       <div class="contact">
         <div class="title">
          
-
               <img
                 src="images/contact.png" >
   
@@ -306,5 +307,24 @@
  
       </div>
     </div>
+    <footer>
+        <ul>
+            <a href=""><li>About Us</li></a>
+            <a href=""><li>Our Team</li></a>
+            <a href=""><li>New Vehicles</li></a>
+        </ul>
+        <div class="pikalti">
+            <div id="imgs">
+                <a href=""><img src="images/e-mail 1.png"></a>
+                <a href=""><img src="images/facebook (2) 1.png"></a>
+                <a href=""><img src="images/instagram (1) 1.png"></a>
+                <a href=""><img src="images/linkedin 1.png"></a>
+            </div>
+            <p>Pikalti</p>
+        </div>
+    </footer>
+    <section id="copyright">
+        <p>Ⓒ copyright all rights reserved 2022</p>
+    </section>
   </body>
 </html>

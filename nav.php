@@ -1,4 +1,4 @@
- 
+
 <?php
 // session_start();
 if (isset($_POST["logout"])) {
@@ -8,14 +8,18 @@ if (isset($_POST["logout"])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
- 
- 
+
+
     <nav>
         <div class="test">
             <img src="images/bike.png" style="margin-top:7px;
             height: 36px;">
       <div>    
-      <form  method="POST">
+          <div class="khat"></div>
+  <!-- <input id="search-box" type="text" class="search-box" name="q" />
+  <label for="search-box"><span class="glyphicon glyphicon-search search-icon" ></span></label>
+  <input type="submit" id="search-submit" /> -->
+  <form  method="POST">
         <div class="search-box-s">
             <input type="text" placeholder="search...."  name="search">
             <button name="search-btn" class="icon-s">
@@ -23,8 +27,19 @@ if (isset($_POST["logout"])) {
             </button>
         </div>
     </from>
-<!-- <script>document.addEventListener("touchstart", function(){}, true);</script> -->
- 
+
+  <img  src="./images/user.jpg" style="
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    margin-top:4px;
+    border: 2px solid var(--theme-color);"
+    >
+      </div>
+<script>document.addEventListener("touchstart", function(){}, true);</script>
+
         </div>
         <div class="area"></div>
         <div class="main-menu">
@@ -36,7 +51,7 @@ if (isset($_POST["logout"])) {
                             Dashboard
                         </span>
                     </a>
- 
+
                 </li>
                 <li class="has-subnav">
                     <a href="Client.php">
@@ -45,16 +60,16 @@ if (isset($_POST["logout"])) {
                             Client
                         </span>
                     </a>
- 
+
                 </li>
                 <li class="has-subnav">
-                    <a href="Reservation.php">
+                    <a href="addReservation.php">
                         <i class="fa fa-calendar-check fa-2x"></i>
                         <span class="nav-text">
                             Reservations
                         </span>
                     </a>
- 
+
                 </li>
                 <li class="has-subnav">
                 <a href="vehicl.php">
@@ -63,11 +78,11 @@ if (isset($_POST["logout"])) {
                     Vehicles
                     </span>
                 </a>
- 
- 
+
+
                 </li>
                 <li>
-                    <a href="Locations.php">
+                    <a href="Agencies.php">
                         <i class="fa fa-store fa-2x"></i>
                         <span class="nav-text">
                         Agencies
@@ -116,14 +131,13 @@ if (isset($_POST["logout"])) {
                                     Logout
                                 </span>
                         </li>
- 
+
+                    </ul>
                 </button>
-                </ul>
- 
+
             </form>
         </nav>
- 
- 
- 
-</html>
 
+
+
+</html>

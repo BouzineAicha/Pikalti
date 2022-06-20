@@ -3,7 +3,7 @@ body {
   /* background-image: url(images/loginbackground.jpg) ; */
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #e5e5e5;
+  background-color: #e5e5e59a;
   width: 100%;
   height: auto;
   font-family: "Montserrat";
@@ -63,14 +63,13 @@ nav ul > li > a:focus {
 
 .swiper {
   width: 100%;
-   height:100vh;
-  background-image: url(images//sports-activites-b-1024x678.webp);
+  height:650px;
+  background-image: url(images/The\ 10\ Very\ Best\ Electric\ Bike\ Accessories\ _\ Bluejay\ Bikes\ –\ Bluejay\ Bicycles\ 1.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
 .swiper-slide {
   width: 100%;
-
   text-align: center;
   font-size: 18px;
   background: #fff;
@@ -91,7 +90,7 @@ nav ul > li > a:focus {
 .swiper-slide img {
   display: block;
   width: 100%;
-  height: auto;
+  height:650px;
   object-fit: cover;
   opacity: 0.7;
 }
@@ -296,11 +295,6 @@ nav ul > li > a:focus {
   background-color: #fff;
 }
 
-.card__side--front-1 {
-  background-image: url(./images/gestionnaire-de-paie-fiche-metier\ 2.png);
-  background-size: cover;
-}
-
 .card__side--front-2 {
   background: linear-gradient(-45deg, #b5aa92, #eaeaea);
 }
@@ -432,6 +426,9 @@ nav ul > li > a:focus {
   border-radius: 10px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .articl1 {
   width: 100%;
@@ -471,4 +468,70 @@ h3 {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: bold;
+}
+footer {
+ 
+  background-image: url(images/Group\ 41.png);
+  background-repeat: repeat-x;
+  margin-top: 30px;
+  background-color: #47433b;
+  height: 207px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+footer ul {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: left;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#imgs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+footer ul a li {
+  text-align: center;
+  font-size: 20px;
+  width: 210px;
+  color: aliceblue;
+  text-decoration: none;
+  list-style: none;
+}
+footer>div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pikalti p {
+  font-size: 20px;
+  margin: 10px;
+}
+
+#imgs img {
+  width: 29px;
+  height: 29px;
+  margin: 10px;
+}
+#copyright {
+  width: 100%;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: bolder;
+  background-color: rgb(243, 243, 243);
+  height: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b5aa92;
+  height: 60px;
+}
+#copyright p {
+
 }
