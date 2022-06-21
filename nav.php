@@ -1,6 +1,7 @@
 
 <?php
-// session_start();
+include "connection.php";
+session_start();
 if (isset($_POST["logout"])) {
     session_destroy();
       header("location:login.php");
@@ -46,6 +47,13 @@ if (isset($_POST["logout"])) {
             <ul>
                 <li>
                     <a href="home.php">
+                        <i class="fa fa-user fa-2x"></i>
+                        <span class="nav-text">
+                        <?php echo $_SESSION["fnam"]; ?>
+                        </span>
+                    </a>
+                <li>
+                    <a href="home.php">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                             Dashboard
@@ -63,7 +71,7 @@ if (isset($_POST["logout"])) {
 
                 </li>
                 <li class="has-subnav">
-                    <a href="addReservation.php">
+                    <a href="bookings.php">
                         <i class="fa fa-calendar-check fa-2x"></i>
                         <span class="nav-text">
                             Reservations
@@ -86,38 +94,6 @@ if (isset($_POST["logout"])) {
                         <i class="fa fa-store fa-2x"></i>
                         <span class="nav-text">
                         Agencies
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-font fa-2x"></i>
-                        <span class="nav-text">
-                            Quotes
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-table fa-2x"></i>
-                        <span class="nav-text">
-                            Tables
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-map-marker fa-2x"></i>
-                        <span class="nav-text">
-                            Maps
-                        </span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-info fa-2x"></i>
-                        <span class="nav-text">
-                            Documentation
                         </span>
                     </a>
                 </li>

@@ -83,7 +83,7 @@ $search = "";
                   <td style="vertical-align:-webkit-baseline-middle;width:160px;text-align:center;"> ' . $row["id_agence"] . '</td>
                   <td style="vertical-align:-webkit-baseline-middle;width:160px;text-align:center;">' . $row["end_time"] . '</td>
                   <td style="vertical-align:-webkit-baseline-middle;width:160px;text-align:center;"> ' . $row["id_agence2"] . '</td>
-                  <td style="vertical-align:-webkit-baseline-middle;width:160px;text-align:center;">' .$row["id_agence2"]. '</td>
+                  <td style="vertical-align:-webkit-baseline-middle;width:160px;text-align:center;">' .$row["daily_hour_Rate"]. '</td>
                   <td style="vertical-align:-webkit-baseline-middle;width:124px;text-align:center;"> <a href="update.php? id=' . $row["ID_reservation"] . ' "<i class="fa fa-edit 2x btn " style="vertical-align:-webkit-baseline-middle;width:124px;text-align:center;font-size:20px;"></i></a>  </td>
                   <td style="vertical-align:-webkit-baseline-middle;width:127px;text-align:center;"> <form action="Bookings.php" method="post"> <a href="Bookings.php?ID_delete='.  $row["ID_reservation"].'"onClick="return confirm(`Are you sure you want to delete?`)"> <i class="bx bx-trash icon 2x btn" style="font-size:20px;"></i></a></form> </td>'
                 

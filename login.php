@@ -17,8 +17,8 @@ if (isset($_POST['submit'])) {
    
     //  $_SESSION["fullName"]= $_POST['fullName'];
  
-    $_SESSION["email"] =$_POST['managerEmail'];
-    // $_SESSION["fnam"] = $row_assoc['fullName'];
+    // $_SESSION["email"] =$_POST['managerEmail'];
+    $_SESSION["fnam"] = $row_assoc['fullName'];
     // $_SESSION['fullName'] = $firstname;
  
     header("location:home.php");

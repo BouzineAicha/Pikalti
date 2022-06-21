@@ -113,7 +113,14 @@ header("location:Bookings.php");
                     </div>
                
                    
-                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                <button type="submit" class="btn btn-primary" style="  font-family: 'Montserrat';
+  background: #272643;
+  border-radius: 7px;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: center;
+  height:38px;
+  color: #fff;" name="submit">Submit</button>
                 </div>
         
            

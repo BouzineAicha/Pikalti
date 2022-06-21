@@ -264,7 +264,7 @@
                       $resultt = $conn->query($sqll);    ?>                                     
                       <div class="articl1">
          <?php foreach ($resultt as $row) {?>
-          <div class="vhc"> <img src="images/<?php echo $row['img']?>"style=" width: 177px; "></div>
+          <div class="vhc"> <img src="images/<?php echo $row['img']?>"style=" width: 177px; margin-left: 45px;"></div>
           <?php } ?>
          
         </div>
@@ -272,7 +272,7 @@
                       $result = $conn->query($sql);    ?>                                     
                       <div class="articl1">
          <?php foreach ($result as $row) {?>
-          <div class="vhc"> <img src="images/<?php echo $row['img']?>" style=" width: 177px; "></div>
+          <div class="vhc"> <img src="images/<?php echo $row['img']?>" style=" width: 177px; margin-left: 45px;"></div>
           <?php } ?>
         </div>
         
